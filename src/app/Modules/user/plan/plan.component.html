@@ -1,0 +1,207 @@
+<div [ngSwitch]="ISsubscribe">
+<div *ngSwitchCase="'Confirmed'">
+
+
+<section class="wrapper my-5" style="margin-top: 150px;">
+    <div class="container">
+
+        <div class="row">
+            <div class="col text-center mb-5">
+                <h1 class="display-4" style="text-align: center;">خطتك اليوم</h1>
+                <p class="lead">اختار وجبة واحدة للفطار والغداء والعشاء من الوجبات المعروضة , و ان قمت بالخروج عن
+                    الخطة يرجى ترك ملاحظة يومية </p>
+            </div>
+        </div>
+        <h1 *ngIf="ISbreakfast">
+            <span>
+                <input type="checkbox" name="lose" id="lose-checkbox">
+                <label for="lose-checkbox">الأفطار</label></span>
+        </h1>
+        <div class="row " style="justify-content: flex-end; " >
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let break of breakfast">
+                <div class="card text-white card-has-bg click-col"
+                    style="background-size: cover; background-image:url('data:image/png;base64,{{break.image}}');">
+                 <div class="card-img-overlay d-flex flex-column">
+                        <div class="card-body">
+                            <small class="card-meta mb-2 text-white-50 ">وجبة 1</small>
+                            <h4 class="card-title mt-0 fs-6 text-white"> {{break.description}}
+                                 </h4>
+                            <small class="text-white-50"><i class="far fa-clock "></i> 400 kcal</small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="media">
+                                <button class="mr-3 btn blue rounded-1"> أختار</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <h1 *ngIf="ISlunch">
+
+                <span>   <input type="checkbox" name="lose" id="lose-checkbox">
+                    <label for="lose-checkbox">الغداء</label></span>
+            </h1>
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let lunch of lunch ">
+              <div class="card text-white card-has-bg click-col"
+                  style="background-size: cover; background-image:url('data:image/png;base64,{{lunch.image}}');">
+               <div class="card-img-overlay d-flex flex-column">
+                      <div class="card-body">
+                          <small class="card-meta mb-2 text-white-50 ">وجبة 1</small>
+                          <h4 class="card-title mt-0 fs-6 text-white"> {{lunch.description}}
+                               </h4>
+                          <small class="text-white-50"><i class="far fa-clock "></i> 400 kcal</small>
+                      </div>
+                      <div class="card-footer">
+                          <div class="media">
+                              <button class="mr-3 btn blue rounded-1"> أختار</button>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+            <h1  *ngIf="ISdinner">
+                <span>   <input type="checkbox" name="lose" id="lose-checkbox">
+                    <label for="lose-checkbox">العشاء</label></span>
+            </h1>
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let dinner of dinner">
+              <div class="card text-white card-has-bg click-col"
+                  style="background-size: cover; background-image:url('data:image/png;base64,{{dinner.image}}');">
+               <div class="card-img-overlay d-flex flex-column">
+                      <div class="card-body">
+                          <small class="card-meta mb-2 text-white-50 ">وجبة 1</small>
+                          <h4 class="card-title mt-0 fs-6 text-white"> {{dinner.description}}
+                               </h4>
+                          <small class="text-white-50"><i class="far fa-clock "></i> 400 kcal</small>
+                      </div>
+                      <div class="card-footer">
+                          <div class="media">
+                              <button class="mr-3 btn blue rounded-1"> أختار</button>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+            <h1 *ngIf="ISsnaks">
+                <span>   <input type="checkbox" name="lose" id="lose-checkbox">
+                    <label for="lose-checkbox">سناكس</label></span>
+            </h1>
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let snaks of snaks">
+              <div class="card text-white card-has-bg click-col"
+                  style="background-size: cover; background-image:url('data:image/png;base64,{{snaks.image}}');">
+               <div class="card-img-overlay d-flex flex-column">
+                      <div class="card-body">
+                          <small class="card-meta mb-2 text-white-50 ">وجبة 1</small>
+                          <h4 class="card-title mt-0 fs-6 text-white"> {{snaks.description}}
+                               </h4>
+                          <small class="text-white-50"><i class="far fa-clock "></i> 400 kcal</small>
+                      </div>
+                      <div class="card-footer">
+                          <div class="media">
+                              <button class="mr-3 btn blue rounded-1"> أختار</button>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+            <h1 *ngIf="ISsohor" >
+                <span>   <input type="checkbox" name="lose" id="lose-checkbox">
+                    <label for="lose-checkbox">السحور</label></span>
+            </h1>
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let sohor of sohor">
+              <div class="card text-white card-has-bg click-col"
+                  style="background-size: cover; background-image:url('data:image/png;base64,{{sohor.image}}');">
+               <div class="card-img-overlay d-flex flex-column">
+                      <div class="card-body">
+                          <small class="card-meta mb-2 text-white-50 ">وجبة 1</small>
+                          <h4 class="card-title mt-0 fs-6 text-white"> {{sohor.description}}
+                               </h4>
+                          <small class="text-white-50"><i class="far fa-clock "></i> 400 kcal</small>
+                      </div>
+                      <div class="card-footer">
+                          <div class="media">
+                              <button class="mr-3 btn blue rounded-1"> أختار</button>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+    </div>
+</section>
+
+<div class="container row bootdey m-auto d-flex">
+    <div class="col-md-6 bootstrap snippets">
+        <div class="panel">
+            <div class="panel-body">
+                <textarea *ngFor="let item of data.slice(-2)" class="form-control m-3" disabled style="text-align: end;" rows="2"
+                    placeholder=" لم يكتب لك الطبيب ملاحظة بعد">{{item.text}}
+                    {{item.date|date:"MM-dd-yyyy  HH:mm:ss"}}
+                  </textarea>
+                <div class="mar-top clearfix" style="text-align: center;">
+                    <span class=" btn-sm  bg-danger rounded-1 text-white p-2 pull-right"> ملاحظة دكتورك</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 bootstrap snippets">
+      <form [formGroup]="patientNoteDataForm" (ngSubmit)="onSubmitPatientNoteData()">
+        <div class="panel">
+            <div class="panel-body">
+                <textarea class="form-control notebody m-3" formControlName="text" style="text-align: end;" rows="2"
+                    placeholder=" اكتب ملاحظتك هنا ليراها طبيبك">
+                  </textarea>
+                  <div *ngIf="text?.touched && text?.invalid">
+                    <p *ngIf="text?.errors?.['required']" class="text-danger" dir="rtl">
+                                      برجاء ادخال الملاحظه قبل الضغط علي الزر
+                    </p>
+                    </div>
+                <div class="mar-top clearfix" style="text-align: end;">
+                  <button class="btn btn-sm  blue pull-right" (click)="AddPatientNote()" type="submit"><i class="fa fa-pencil fa-fw"></i>
+                    تم</button>
+                </div>
+            </div>
+            <div *ngIf="showDone"  class="confirmation-box">
+              <div class="alert alert-success alert-dismissible fade show" role="alert" dir="rtl">
+                                 سوف يصلك الرد من دكتورك
+              <button type="button" class="btn-close" data-bs-dismiss="alert"  aria-label="Close"></button>
+              </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+
+</div>
+<div *ngSwitchCase="'NotConfirmed'" class="m-5">
+    <div class="container" style="direction: rtl;">
+
+        <div class="alert alert-danger text-left" role="alert">
+            <h4 class="alert-heading fw-bold">نأسف</h4>
+            <p>لم يتم الاشتراك فى خطة بعد </p>
+            <hr>
+            <p class="mb-0">يمكنك الاشتراك فى خطة عن طريق اختيار دكتور وطلب الاشتراك</p>
+          </div>
+      </div>
+
+</div>
+
+<div *ngSwitchCase="'Canceled'">
+    <div class="alert alert-danger text-left" role="alert">
+        <h4 class="alert-heading fw-bold">نأسف</h4>
+        <p>يجيب دفع الاشتراك لمتابعة الخطة</p>
+        <hr>
+   </div>
+  </div>
+
+</div>
+
+
+

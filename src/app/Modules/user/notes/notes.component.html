@@ -1,0 +1,33 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="page-content container note-has-grid">
+
+    <div class="tab-content bg-transparent">
+        <div id="note-full-container" class="note-has-grid row">
+            <div *ngFor="let item of data" class="col-md-3 col-sm-7 single-note-item all-category m-4" >
+                <div class="card card-body" (click)="navigate(item.dayCustomPlanId,item.patientId)">
+                    <span class="side-stick text-danger "></span>
+                    <h5 class="note-title text-truncate w-75 mb-0 " data-noteheading="Book a Ticket for Movie">{{item.fullName}} <i class="point fa fa-circle ml-1 text-danger font-10"></i></h5>
+                    <p class="note-date font-12 text-muted">{{item.date |date:"MM-dd-yyyy  HH:mm:ss"}}</p>
+                    <div class="note-content">
+                        <p class="note-inner-content text-danger fs-5" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">{{item.text}}</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+
+                        <div class="ml-auto">
+                            <div class="category-selector btn-group">
+                                <a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+                                    <div class="category">
+                                        <div class="category-business"></div>
+                                        <div class="category-social"></div>
+                                        <div class="category-important"></div>
+                                        <span class="more-options text-dark fs-5"><i class="icon-options-vertical"></i></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

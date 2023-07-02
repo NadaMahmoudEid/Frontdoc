@@ -1,0 +1,179 @@
+<section class="text-center text-lg-start">
+
+    <div class="container py-4">
+        <div class="row g-0 align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="card cascading-right" style="
+                background: hsla(0, 0%, 100%, 0.55);
+                backdrop-filter: blur(30px);
+                ">
+                    <div class="card-body p-5 shadow-5 text-center">
+                        <div class="ro">
+                            <h1 class="fw-bold mb-5 fa-lg" style="color:#163A66;">التسجيل </h1>
+                        </div>
+                        <form [formGroup]="AdminRegisterForm" (ngSubmit)="onSubmit(AdminRegisterForm)">
+
+                            <div class="form-outline mb-5">
+                                <div class="input-group">
+
+                                    <input type="text"
+                                      id="FullName"
+                                      formControlName="FullName"
+                                      class="form-control text-center"
+                                        style="direction: rtl; "
+                                        placeholder="ادخل ألاسم كامل" />
+                                    <span class="input-group-text">
+                                        
+                                        <i class="fa-solid fa-person fa-lg"  style="color:#163A66;"></i>
+                                        <i class="fa fa-regular fa-input-text fa-lg" style="color:#163A66;"></i>
+
+                                    </span>
+                                </div>
+                                <div *ngIf="FullName?.errors != null && FullName?.touched">
+                                    <p *ngIf="FullName?.errors?.['required']" class="text-danger">
+                                        ادخل الاسم كامل
+                                    </p>
+                                    <p class="text-danger" *ngIf="FullName?.errors?.['minlength']">
+                                        أدخل اسمك بحد أقل 3 أحرف.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!--  -->
+                            <div class="form-outline mb-5">
+                                <div class="input-group">
+
+                                    <input type="text" id="username" class="form-control text-center"
+                                        formControlName="username"
+                                        style="direction: rtl; "
+                                        placeholder="ادخل أسم المستخدم" />
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-circle-user fa-lg" style="color:#163A66;"></i>
+                                    </span>
+                                </div>
+                                <div *ngIf="UserName?.errors != null && UserName?.touched">
+                                    <p *ngIf="UserName?.errors?.['required']" class="text-danger">
+                                        ادخل اسم المستخدم
+                                    </p>
+                                    <p class="text-danger" *ngIf="UserName?.errors?.['minlength']">
+                                        أدخل اسم المستخدم بحد أقل 5 أحرف.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!--  -->
+
+                            <div class="form-outline mb-5">
+                                <div class="input-group">
+                                    <input type="email" id="email" formControlName="email"
+                                        style="direction: rtl; "
+                                        placeholder="Abc0@gmail.com" class="form-control text-center" />
+                                    <label for="email" class="input-group-text">   &nbsp;
+                                        <i class="fa-solid fa-envelope fa-lg" style="color:#163A66;"></i>
+                                    </label>
+                                </div>
+
+                                <div *ngIf="email?.errors != null && email?.touched">
+                                    <p *ngIf="email?.errors?.['required']" class="text-danger">
+                                        برجاء ادخال الايميل
+                                    </p>
+                                    <p *ngIf="email?.errors?.['email']" class="text-danger">
+                                        abc@gmail.com يجب ان يكون على هذا الشكل
+                                    </p>
+                                </div>
+                            </div>
+                            <!--  -->
+                            <div class="form-outline mb-5">
+                                <div class="input-group">
+                                    <input type="file" id="formFile" formControlName="ProfileImage"
+                                        style="direction: rtl; "
+                                        class="form-control text-center "
+                                        (change)="onSelectFile($event)"
+                                       
+                                        />
+                                    <label for="formFile" class="input-group-text">  &nbsp;
+                                        
+                                        <i class="fa-solid fa-images" style="color:#163A66;"></i>
+                                    </label>
+                                </div>
+                                <!-- -->
+                                <div *ngIf="ProfileImage?.errors != null && ProfileImage?.touched">
+                                    <p *ngIf="ProfileImage?.errors?.['required']" class="text-danger">
+                                        يجب ادخال صورة البروفايل
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            
+                            <!--  -->
+                            <div class="form-outline mb-5">
+                                <div class="input-group">
+                                    <input type="password" id="password" formControlName="password"
+                                        class="form-control text-center"
+                                        style="direction: rtl; "
+                                        placeholder="ادخل كلمه السر" />
+                                    <span class="input-group-text">
+                                        <i class="fa fa-solid fa-lock"></i>
+                                    </span>
+                                </div>
+
+                                <div *ngIf="password?.errors != null && password?.touched">
+                                    <p *ngIf="password?.errors?.['required']" class="text-danger">
+                                        برجاء ادخال كلمه السر
+                                    </p>
+                                    <p class="text-danger" *ngIf="password?.errors?.['minlength']">
+                                        برجاء أدخل كلمه المرور بحد أقل 6 أحرف
+                                    </p>
+                                    <p class="text-danger" *ngIf="password?.errors?.['maxlength']">
+                                        برجاء أدخل كلمه المرور بحد أقل 10 أحرف
+                                    </p>
+                                    <p *ngIf="password?.errors?.['strong']" class="text-danger">
+                                        كلمة المرور غير قوية، يجب أن تحتوي على رقم واحد على الأقل،
+                                        حرف كبير واحد، حرف صغير واحد، ورمز واحد.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!--  -->
+                            <div class="form-outline mb-4">
+
+
+                                <div class="input-group">
+                                    <input [class.is-invalid]="confirmPassword?.invalid && confirmPassword?.touched"
+                                        type="password" name="confirmPassword" id="cp" formControlName="confirmPassword"
+                                        style="direction: rtl; "
+                                        class="form-control text-center" placeholder="تأكيد كلمة السر">
+
+
+                                    <label for="cp" class="input-group-text">   &nbsp;
+                                        <i class="fa fa-solid fa-lock fa-lg" style="color:#163A66"></i>
+                                    </label>
+
+
+                                </div>
+                                <div class="text-danger" *ngIf="AdminRegisterForm.errors?.['misMatch']">
+                                    تأكيد كلمة السر غير متوافقة مع كلمة السر </div>
+
+                                <div *ngIf="confirmPassword?.errors !=null && confirmPassword?.touched" class="mt-2">
+
+                                    <p *ngIf="confirmPassword?.errors?.['required']">برجاء إدخال تأكيد كلمة السر</p>
+                                </div>
+                            </div>
+
+
+                            <button type="submit" id="loginBtn" class="btn btnB btn-block mb-4"
+                                [disabled]="AdminRegisterForm.invalid">
+                                تسجيل
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <img src="/assets/logooo.jpg" style="width: auto; height: auto;" loading="lazy"
+                    class="w-100 rounded-4 shadow-4" alt="logo." name="logo" />
+            </div>
+        </div>
+    </div>

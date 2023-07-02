@@ -1,0 +1,43 @@
+
+<div class="row mt-4 contain" style="text-align: center;">
+  <span class="fw-bold fs-4" style="color:  #0d1c9e;">الخطط</span>
+
+  </div>
+  <div class="row ">
+    <div class="col-9"></div>
+    <button routerLink="/doctor/dash/AddPlan" class="btn btn-primary col-2 mb-3">أضافة خطة</button>
+  
+  
+  </div>
+  <div class="row mt-2 mx-4 plans flex-wrap">
+  
+     
+               
+                    <div class=" col-sm-12 col-md-4 text-center" *ngFor="let plans of data" >
+  
+                      <div class="animate__animated animate bounce card " >
+                        <div class="container p- ">
+                          <img  src="assets/plans.jpg" class="card-img-top p-3" alt="..."  loading="lazy" name="favj"></div>
+                          <div class="card-body">
+                            <h4 class="card-title ms-1">كالوريز</h4>
+                          <h4 class="card-title ms-1"> {{plans.caloriesFrom}} - {{plans.caloriesTo}}</h4>
+                          <p class="card-text mb-5 ms-1">المده : {{plans.duration}}</p>
+                      
+                          <a (click)="GOToplan(plans.id)" target="_blank" class="btn btn-primary mb-1 mt-1 ">تفاصيل</a>
+                        </div>
+                      </div>
+                </div>
+                        
+               
+              
+          
+                  
+           
+                  
+
+                  
+      
+                        
+              
+   
+  </div>
